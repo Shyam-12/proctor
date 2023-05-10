@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Quicksand', sans-serif;
+}
+
+.logo {
+    position: absolute;
+    width: 218px;
+    height: 80px;
+    left: 818px;
+    top: 69px;
+
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 80px;
+    /* identical to box height */
+
+
+    color: #000000;
+}
