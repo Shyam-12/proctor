@@ -12,11 +12,13 @@ const Register = () => {
 
   const onChange = (e) => {
     setformData({ ...formData, [e.target.id]: e.target.value });
-    console.log(formData);
   };
   return (
     <div>
-      <h4>Back to Home</h4>
+      <Link to="/">
+      
+        <h4>Back to Home</h4>
+      </Link>
       <div className="form">
         <h1>Regsiter</h1>
         <form>
@@ -30,6 +32,7 @@ const Register = () => {
           />
           <label htmlFor="">Email</label>
           <input
+            onChange={onChange}
             type="text"
             placeholder="Email "
             value={formData.email}
@@ -37,6 +40,7 @@ const Register = () => {
           />
           <label htmlFor="">Password</label>
           <input
+            onChange={onChange}
             type="text "
             placeholder="password"
             value={formData.password}
@@ -44,6 +48,7 @@ const Register = () => {
           />
           <label htmlFor="">Confirm Password</label>
           <input
+            onChange={onChange}
             type="text"
             placeholder="Confirm password"
             id="rePassword"
