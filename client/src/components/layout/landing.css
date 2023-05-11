@@ -13,7 +13,7 @@ body {
 }
 
 .container{
-    width: 80%;
+    width: 85%;
     border: 1px solid gray;
     padding: 100px 50px;
     display: flex;
