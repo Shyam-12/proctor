@@ -1,9 +1,12 @@
 // import { Component } from "react";
 // import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import Navbar from "./components/layout/Navbar";
 import Landing from "./components/layout/LandingPage";
+import Register from "./components/auth/Register";
+import Login from "./components/auth/Login";
 // import Register from "./components/auth/Register";
 // import Login from "./components/auth/Login";
 // import PrivateRoute from "./PrivateRoute";
@@ -15,13 +18,27 @@ import Landing from "./components/layout/LandingPage";
  * and a router which displays the correct component based on URL
  */
 
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Landing />,
+  },
+  {
+    path: "/register",
+    element: <Register />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+]);
 function App() {
   return (
     <div>
       <Navbar />
-      <Landing />
+      <RouterProvider router={router} />
     </div>
-  )
+  );
 }
 
 export default App;

@@ -6,14 +6,14 @@
 
 function Navbar() {
   return (
-    <div className="navbar-fixed">
-    <nav className="z-depth-0">
-      <div>
-        <h1>PROCTOR</h1>
-      </div>
-    </nav>
-  </div>
+    <div>
+      <nav className="z-depth-0">
+        <div>
+          <h1>PROCTOR</h1>
+        </div>
+      </nav>
+    </div>
   );
 }
 
-export default Navbar
+export default Navbar;
