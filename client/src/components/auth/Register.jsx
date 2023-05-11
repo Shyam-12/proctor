@@ -13,15 +13,32 @@ const Register = () => {
   const onChange = (e) => {
     setformData({ ...formData, [e.target.id]: e.target.value });
   };
+
+  //to check whether login user is instructor or not
+  const onToggle = () => {
+    setformData((prev) => ({
+      ...prev,
+      userType: !prev.userType,
+    }));
+  };
+
+  //submit the form
+  const onSubmit = (e)=>{
+    e.preventDefault();
+    console.log("hello")
+
+
+
+  }
+
   return (
     <div>
       <Link to="/">
-      
         <h4>Back to Home</h4>
       </Link>
       <div className="form">
         <h1>Regsiter</h1>
-        <form>
+        <form onSubmit={onSubmit}>
           <label htmlFor="">Name</label>
           <input
             type="text"
@@ -55,10 +72,12 @@ const Register = () => {
             value={formData.rePassword}
           />
           <label htmlFor="">Are You Instructor ? </label>
-          <input type="checkbox" />
+          <input type="checkbox" onChange={onToggle} id="userType" />
           <p>
             Already have an account? <Link to="/login">Login</Link>{" "}
           </p>
+
+          <button>Submit</button>
         </form>
       </div>
     </div>
