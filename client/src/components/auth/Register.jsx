@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import "./register.scss";
+import axios from "axios";
 
 const Register = () => {
   const [formData, setformData] = useState({
@@ -23,16 +25,17 @@ const Register = () => {
   };
 
   //submit the form
-  const onSubmit = (e)=>{
+  const onSubmit = async (e) => {
     e.preventDefault();
-    console.log("hello")
-
-
-
-  }
+    const res = await axios.post(
+      "http://localhost:8800/api/users/register",
+      formData
+    );
+    console.log(res.data);
+  };
 
   return (
-    <div>
+    <div className="regsiter">
       <Link to="/">
         <h4>Back to Home</h4>
       </Link>
@@ -71,13 +74,15 @@ const Register = () => {
             id="rePassword"
             value={formData.rePassword}
           />
-          <label htmlFor="">Are You Instructor ? </label>
-          <input type="checkbox" onChange={onToggle} id="userType" />
+          <div className="check">
+            <label htmlFor="">Are You Instructor ? </label>
+            <input type="checkbox" onChange={onToggle} id="userType" />
+          </div>
+
+          <button>Submit</button>
           <p>
             Already have an account? <Link to="/login">Login</Link>{" "}
           </p>
-
-          <button>Submit</button>
         </form>
       </div>
     </div>

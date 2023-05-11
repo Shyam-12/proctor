@@ -1,58 +1,47 @@
-const express = require('express')
-const path = require('path');
+const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-const passport = require("passport");
-const fileUpload = require('express-fileupload')
+const dotenv = require("dotenv");
+const cors = require("cors");
+dotenv.config();
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 8800;
 
 const app = express();
 
-const users = require("./routes/users");
-const exams = require("./routes/exams");
-const logs = require("./routes/logs");
+const userRoutes = require("./routes/users");
 
 // allow x-www-form-urlencoded body type in postman requests
+app.use(cors());
 app.use(
-    bodyParser.urlencoded({
-      extended: false
-    })
+  bodyParser.urlencoded({
+    extended: false,
+  })
 );
 
+//parser
 app.use(bodyParser.json());
-app.use(fileUpload());
-app.use(express.static(path.resolve(__dirname, '../client/build')));
 
-// Passport middleware
-app.use(passport.initialize());
-// Passport config
-require("./config/passport")(passport);
 // Routes
-app.use("/api/users", users);
-app.use("/api/exams",exams);
-app.use("/api/logs",logs);
-// DB Config
-const db = require("./config/keys").mongoURI;
+app.use("/api/users", userRoutes);
+
 // Connect to MongoDB
-mongoose.connect(db, { useNewUrlParser: true })
-  .then(() => console.log("MongoDB successfully connected"))
-  .catch(err => console.log(err));
+mongoose
+  .connect(
+    "mongodb+srv://Sandeep:Sandeep@cluster0.bdwyq5q.mongodb.net/newDataBase?retryWrites=true&w=majority"
+  )
+  .then(() => {
+    console.log("DB connected");
+  })
+  .catch((error) => {
+    console.log(error);
+  });
 
-app.get('/', (req, res) => {
+//for testing purpose
+app.get("/", (req, res) => {
   res.send("Hello Proctor!");
-})
-
-// Handle GET requests to /api route
-app.get("/api", (req, res) => {
-  res.json({ message: "Hello from server!" });
-});
-
-// All other GET requests not handled before will return our React app
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
 });
 
 app.listen(PORT, () => {
-    console.log(`Server listening on ${PORT}`);
+  console.log(`Server listening on ${PORT}`);
 });

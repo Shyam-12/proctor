@@ -1,4 +1,4 @@
 module.exports = {
-    mongoURI: "mongodb://localhost:3001/online-exam-proctoring",
+    mongoURI: "mongodb+srv://Sandeep:Sandeep@cluster0.bdwyq5q.mongodb.net/proctor?retryWrites=true&w=majority",
     secretOrKey: "secret",
 }

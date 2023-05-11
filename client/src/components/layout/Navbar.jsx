@@ -6,13 +6,13 @@
 
 function Navbar() {
   return (
-    <div>
-      <nav className="z-depth-0">
-        <div>
-          <h1>PROCTOR</h1>
+    <nav className="bg-white shadow-md">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-center h-20">
+          <h1 className="h-8 text-5xl font-semibold tracking-wide">Proctor</h1>
         </div>
-      </nav>
-    </div>
+      </div>
+    </nav>
   );
 }
 

@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router";
-
+import "./login.scss";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -7,19 +8,19 @@ const Login = () => {
   const onSubmit = (e)=>{
     e.preventDefault();
     navigate("/");
-    
 
   }
   return (
-    <div>
-      <h4>Login</h4>
+    <div className="login">
       <div className="form">
+        <h4>LOGIN</h4>
         <form onSubmit={onSubmit}>
           <label htmlFor="">Username</label>
-          <input type="text" placeholder="username" value="user"/>
+          <input type="text" placeholder="username"  />
           <label htmlFor="">Password</label>
-          <input type="text"  id="pass" />
-          <button>Log in</button>
+          <input type="password" name="" id="" placeholder="password" />
+          <button>Login</button>
+          <p> Dont have an account ? <Link to="/register">Register</Link></p>
         </form>
       </div>
     </div>
