@@ -4,52 +4,20 @@ body {
     font-family: 'Quicksand', sans-serif;
 }
 
-.headline {
-    position: absolute;
-    width: 1558px;
-    height: 104px;
-    left: 232px;
-    top: 207px;
-
-    font-family: 'Quicksand';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 64px;
-    line-height: 80px;
-
-    color: #515151;
-
+.landing{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
 }
 
-.rectangle {
-    position: absolute;
-    width: 1037px;
-    height: 643px;
-    left: 441px;
-    top: 339px;
-
-    background: rgba(155, 143, 149, 0.1);
-    border-radius: 25px;
-}
-
-.reg-btn {
-    position: absolute;
-    width: 521px;
-    height: 90px;
-    left: 699px;
-    top: 622px;
-
-    background: rgba(16, 61, 219, 0.53);
-    border-radius: 20px;
-}
-
-.login-btn {
-    position: absolute;
-    width: 521px;
-    height: 90px;
-    left: 699px;
-    top: 755px;
-
-    background: #FFFFFF;
-    border-radius: 20px;
+.container{
+    width: 80%;
+    border: 1px solid gray;
+    padding: 100px 50px;
+    display: flex;
+    flex-direction: colurmn;
+    justify-content: center;
+    align-items: center;
 }
